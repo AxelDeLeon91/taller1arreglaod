@@ -1,0 +1,158 @@
+# depslib dependency file v1.0
+1675719896 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\comando.cpp
+	"comando.h"
+
+1677797706 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\comando.h
+
+1675552966 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\error.cpp
+	"error.h"
+
+1676326618 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\error.h
+
+1678077807 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\arbolpersonas.cpp
+	"arbolPersonas.h"
+
+1678076792 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\arbolpersonas.h
+	"persona.h"
+
+1677192744 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\persona.h
+	"string.h"
+	"fecha.h"
+
+1677797706 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\string.h
+	"boolean.h"
+
+1677192967 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\boolean.h
+	<stdio.h>
+
+1678053246 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\fecha.h
+	"boolean.h"
+	"string.h"
+
+1675545158 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\boolean.cpp
+	<stdio.h>
+	"boolean.h"
+
+1678154171 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\fecha.cpp
+	<stdio.h>
+	"fecha.h"
+
+1678157200 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\parsing.cpp
+	"parsing.h"
+
+1678150221 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\parsing.h
+	"arbolPersonas.h"
+	"listaSuc.h"
+	"listaStr.h"
+	"comando.h"
+	"error.h"
+
+1678076792 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\listasuc.h
+	"datosSuce.h"
+	"persona.h"
+
+1677965369 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\datossuce.h
+	"persona.h"
+
+1678157575 c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\listastr.h
+	"string.h"
+
+1677991798 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\persona.cpp
+	"persona.h"
+
+1678153621 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\string.cpp
+	<stdio.h>
+	"string.h"
+
+1678156494 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\datossuce.cpp
+	"datosSuce.h"
+
+1678140975 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\listasuc.cpp
+	"listaSuc.h"
+
+1678158985 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\main.cpp
+	<stdio.h>
+	"parsing.h"
+
+1678160248 source:c:\users\perci\onedrive\escritorio\taller1-trabajodelaboratorio\taller1\listastr.cpp
+	"listaStr.h"
+
+1678179176 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\arbolpersonas.cpp
+	"arbolPersonas.h"
+
+1678160555 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\arbolpersonas.h
+	"persona.h"
+
+1678160555 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\persona.h
+	"string.h"
+	"fecha.h"
+
+1678170412 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\string.h
+	"boolean.h"
+
+1678160555 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\boolean.h
+	<stdio.h>
+
+1678165924 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\fecha.h
+	"boolean.h"
+	"string.h"
+
+1678175877 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\boolean.cpp
+	<stdio.h>
+	"boolean.h"
+
+1678160555 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\comando.cpp
+	"comando.h"
+
+1678164561 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\comando.h
+
+1678180540 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\datossuce.cpp
+	"datosSuce.h"
+
+1678160555 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\datossuce.h
+	"persona.h"
+
+1678160555 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\error.cpp
+	"error.h"
+
+1678160555 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\error.h
+	<stdio.h>
+
+1678165927 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\fecha.cpp
+	<stdio.h>
+	"fecha.h"
+
+1678173615 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.cpp
+	"listaStr.h"
+
+1678173624 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.h
+	"string.h"
+
+1678180358 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listasuc.cpp
+	"listaSuc.h"
+
+1678180200 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listasuc.h
+	"datosSuce.h"
+	"persona.h"
+
+1678178773 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\main.cpp
+	<stdio.h>
+	"parsing.h"
+
+1678169603 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.h
+	"arbolPersonas.h"
+	"listaSuc.h"
+	"listaStr.h"
+	"comando.h"
+	"error.h"
+
+1678180735 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.cpp
+	"parsing.h"
+
+1678179234 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\persona.cpp
+	"persona.h"
+
+1678171148 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\string.cpp
+	<stdio.h>
+	"string.h"
+
