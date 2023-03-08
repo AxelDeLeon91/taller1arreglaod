@@ -50,22 +50,31 @@ void insertarPalabra(string str, listaStr &ls) {
 }
 
 void separarString(string str, listaStr &ls) {
-    listaStr listaAux = ls;
+    printf("\nentre separar string");
     string strAux;
     int i = 0, j = 0;
-    while(str[i] != '\0') {
-        strcrear(strAux);
-        if(str[i] == ' ') {
-            i++;
-        } else {
-            while(str[i] != ' ' && str[i] != '\0') {
-                strAux[j] = str[i];
-                i++; j++;
+    if(str[i]=='\n'){
+            ls=NULL;
+        printf("\nentre if");
+
+    }else{
+        printf("\nentre else");
+        while(str[i] != '\0') {
+            strcrear(strAux);
+            if(str[i] == ' ') {
+                printf("\nentre segundo if");
+                i++;
+            } else {
+                printf("\nentre segundo else");
+                while(str[i] != ' ' && str[i] != '\0') {
+                    strAux[j] = str[i];
+                    i++; j++;
+                }
+                strAux[j] = '\0';
+                j = 0;
+                InsBackIter(ls, strAux);
             }
-            strAux[j] = '\0';
-            j = 0;
-            InsBackIter(ls, strAux);
+            strdestruir(strAux);
         }
-        strdestruir(strAux);
     }
 }

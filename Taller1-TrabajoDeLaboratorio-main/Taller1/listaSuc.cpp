@@ -58,47 +58,51 @@ void mostrarAspirante(datos d){
 }
 
 void cargarNacimiento(listaSuc &ls,string padre,datos aux){
-    printf("\nEntre cargar nacimiento:  ");
-    print(padre);
-    boolean encontre=FALSE, pad=FALSE;
-    int cantHijos=0;
-    listaSuc aux2=ls, aux3;
-
-    while(pad==FALSE&& aux2!=NULL){
-        printf("\nWhile");
-        if(streq(padre,aux2->dat.miembro.nombre)==TRUE){
-            pad=TRUE;
-            printf("\nEncontre padre");
-        }else
-            aux2=aux2->sig;
+    printf("\nEntre a CargarNacimiento");
+    listaSuc aux1=ls, aux2, aux3;
+    printf("\nPRIMER PERSONA LISTA: ");
+    print(aux1->dat.miembro.nombre);
+    while(streq(aux1->dat.miembro.progenitor,padre)==FALSE && aux1->sig!=NULL){
+        printf("\nEntre a while...");
+        aux1=aux1->sig;
     }
-    printf("\nSali while");
-
-
-            do{
-                print(aux2->dat.miembro.progenitor);
-                if(streq(padre,aux2->dat.miembro.progenitor)==TRUE){
-                    printf("\n%c",cantHijos);
-                    cantHijos++;
-                    }
-                aux2=aux2->sig;
-            }while(aux2!=NULL);
-            printf("\nSali while");
-
-            while(cantHijos!=0){
-                if(streq(padre,aux2->dat.miembro.progenitor)){
-                    printf("\n%c",cantHijos);
-                    cantHijos--;
-                    aux3=aux2;
+    printf("\nPRIMER PERSONA LISTA: ");
+    print(aux1->dat.miembro.nombre);
+    printf("\nSalgo del while");
+    //AUX ESTA EN EL PADRE
+    aux2=aux1;
+    aux3=aux1->sig;
+    boolean posi=FALSE;
+    if(aux1->sig==NULL && aux1->dat.miembro.primerMonarca==TRUE){
+        printf("\nEntre a PRIMER IF");
+        aux1->sig= new nodoL;
+        aux1=aux1->sig;
+        aux1->dat= aux;
+        aux1->sig=NULL;
+        printf("\nPRIMER PERSONA LISTA: ");
+        print(ls->dat.miembro.nombre);
+    }else{
+        do{
+            printf("\nEntre a doWhile");
+            if(streq(aux3->dat.miembro.progenitor,aux1->dat.miembro.progenitor)==FALSE){
+                    printf("\nEntre a if=FALSE");
+                    aux3=aux3->sig;
+                    aux2=aux2->sig;
+            }else{
+                if(streq(aux3->dat.miembro.progenitor,aux1->dat.miembro.progenitor)==TRUE){
+                    printf("\nEntre a if=TRUE");
+                    posi=TRUE;
                 }
-                aux2=aux2->sig;
             }
-            printf("\nSali while");
-            aux3->sig=new nodoL;
+        }while(aux3!=NULL && posi!=TRUE);
+        printf("\nSALI DEL DOWHILE");
+            aux2=aux3;
+            aux3->sig= new nodoL;
             aux3=aux3->sig;
-            aux3->sig=aux2;
-            aux3->dat=aux;
-    }
+            aux3->dat= aux;
+            aux2->sig=aux3;
+        }
+}
 
 
 // Archivos

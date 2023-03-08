@@ -5,6 +5,20 @@
 
 const int MAX = 80;
 typedef char *string;
+const string Ini = "INICIAR";
+const string Naci = "NACIMIENTO";
+const string Falle = "FALLECIMIENTO";
+const string Abdi = "ABDICACION";
+const string Miem = "MIEMBROS";
+const string Mona = "MONARCAS";
+const string Asp = "ASPIRANTES";
+const string Histo = "HISTORIAL";
+const string Resp = "RESPALDAR";
+const string Recu = "RECUPERAR";
+const string Sal = "SALIR";
+const string Desc = "DESCONOCIDO";
+const string Flecha = "->";
+
 
 void strcrear(string &s);
 void strdestruir(string &s);

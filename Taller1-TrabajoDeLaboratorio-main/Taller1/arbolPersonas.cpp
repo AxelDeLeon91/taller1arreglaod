@@ -18,7 +18,6 @@ void cargar(arbol &a, persona e) {
     }
 }
 void mostrarArbol(arbol a) {
-    printf("\nMostrarArbol");
     if(a!= NULL) {
         mostrarArbol(a->izq);
         mostrarPersona(a->p);
@@ -31,8 +30,8 @@ boolean buscarPersona(arbol a, string s){
         if(streq(s, a->p.nombre))
             return TRUE;
         else {
-            buscarPersona(a->izq, s);
-            buscarPersona(a->der, s);
+            return buscarPersona(a->izq, s);
+            return buscarPersona(a->der, s);
         }
     }
     else

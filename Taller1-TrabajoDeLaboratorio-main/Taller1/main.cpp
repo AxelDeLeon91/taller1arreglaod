@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "parsing.h"
 
+
 int main() {
     arbol abb;
     crear(abb);
@@ -12,6 +13,7 @@ int main() {
     do{
             crear(lStr);
             strcrear(com);
+            printf("\n-------------------------------------\n");
             printf("\nIngrese el Comando: ");
             scan(com);
             printf("\nComando escaneado");
@@ -21,9 +23,7 @@ int main() {
             switch(c){
                     case Iniciar:
                         if(verificarComando(lStr,c,abb,lSuc)==TRUE){
-                            printf("\nEntre al if");
                             iniciar(abb, lSuc, lStr);
-                            printf("\nSali iniciar");
                         }else{
                             printf("\nEntre a else");
                             mostrarError(lStr,c,abb,lSuc);
@@ -32,6 +32,7 @@ int main() {
                         break;
                     case Nacimiento:
                         printf("\nEntre CASENacimiento\n");
+                        print(lStr->sig->sig->str1);
                         mostrar(verificarComando(lStr,c,abb,lSuc));
                         if(verificarComando(lStr,c,abb,lSuc)==TRUE){
                             printf("\nEntre al if Nacimiento");
@@ -44,11 +45,15 @@ int main() {
                         break;
                     case Fallecimiento:
                         printf("\npalme");
-                        fallecimiento(lSuc, lStr);
+                        if(verificarComando(lStr,c,abb,lSuc)==TRUE){
+                            fallecimiento(lSuc, lStr);
+                        }else{
+                            printf("\nEntre a else");
+                            mostrarError(lStr,c,abb,lSuc);
+                            }
                         break;
                     case Abdicacion:
                         printf("\nEntre a CaseAbdicar");
-                        mostrar(verificarComando(lStr,c,abb,lSuc));
                         if(verificarComando(lStr,c,abb,lSuc)==TRUE){
                             printf("\nEntre al if");
                             abdicacion(lSuc, lStr);
@@ -76,19 +81,28 @@ int main() {
                         break;
                     case Respaldar:
                         printf("\nresp");
+                        bajar(lSuc);
+                        bajar(abb);
                         break;
                     case Recuperar:
                         printf("\nrec");
+                        levantar(lSuc);
+                        levantar(abb);
                         break;
                     case Desconocido:
                         printf("\nDesco");
                         break;
                     case Salir:
                         printf("\nSalir");
+                        break;
+                    default:
+                        printf("Mensaje invalido");
+                        break;
                 }
-            strdestruir(com);
             borrarLista(lStr);
+            strdestruir(com);
             printf("\nLimpie lista string y string");
+
         }while(c!= Salir);
 }
 

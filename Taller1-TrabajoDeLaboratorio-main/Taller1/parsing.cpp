@@ -1,23 +1,27 @@
 #include "parsing.h"
 
 void mostrarError(listaStr str, comando com, arbol abb,listaSuc lsuc) {
-    fecha auxi, auxi2;
     switch(com) {
         case Nacimiento:
                 if(contarNodos(str) != 5) {
+                    printf("Quede en contar nodos");
                     mostrarError(error1);
                 }else{
                     str = str->sig;
                     if(valida(stringFecha(str->str1))==FALSE){
-                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==FALSE)
+                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==FALSE){
                             mostrarError(error3);
-                        else
+                            printf("Quede en ultima fecha");
+                        }else{
                             mostrarError(error2);
+                            printf("Quede en fecha invalida");
+                            }
                     }else{
                         str = str->sig;
                         if(alfabetico(str->str1)==FALSE){
                             mostrarError(error4);
                         }else{
+                            mayus(str->str1);
                             if(buscarPersona(abb,str->str1)==FALSE){
                                 mostrarError(error5);
                             }else{
@@ -156,7 +160,6 @@ void mostrarError(listaStr str, comando com, arbol abb,listaSuc lsuc) {
 
 boolean verificarComando(listaStr str,comando com,arbol abb,listaSuc lsuc) {
       boolean comValido=FALSE;
-      listaStr aux=str;
       fecha auxi, auxi2;
         switch(com) {
         case Iniciar:
@@ -164,10 +167,11 @@ boolean verificarComando(listaStr str,comando com,arbol abb,listaSuc lsuc) {
                     str=str->sig;
                     auxi=stringFecha(str->str1);
                     if(valida(auxi)==TRUE)
-                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==TRUE)
+                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==TRUE){
                             str=str->sig;
                             if(alfabetico(str->str1)==TRUE)
                                 comValido=TRUE;
+                }
                 }
             break;
 
@@ -178,7 +182,7 @@ boolean verificarComando(listaStr str,comando com,arbol abb,listaSuc lsuc) {
                         if(esUltimaFecha(stringFecha(str->str1),lsuc)==TRUE) {
                             str = str->sig;
                             if(alfabetico(str->str1)==TRUE) {
-                                string pAux; strcop(pAux, str->str1); mayus(pAux);
+                                string pAux; strcop(pAux,str->str1);mayus(pAux);
                                 if(buscarPersona(abb,pAux)==TRUE) {
                                     str = str->sig;
                                     if(streq(str->str1,"->")==TRUE) {
@@ -198,20 +202,14 @@ boolean verificarComando(listaStr str,comando com,arbol abb,listaSuc lsuc) {
         case Fallecimiento:
         case Abdicacion:
                 if(contarNodos(str)==3){
-                    printf("\nPase contar nodo");
                     str=str->sig;
                     auxi=stringFecha(str->str1);
                     if(valida(auxi)==TRUE){
-                        printf("\nPase fecha valida");
-                        auxi2=stringFecha(str->str1);
-                        if(esUltimaFecha(auxi2,lsuc)==TRUE){
-                            printf("\nPase ultima fecha");
+                        if(esUltimaFecha(auxi,lsuc)==TRUE){
                             str=str->sig;
                             mayus(str->str1);
                             if(alfabetico(str->str1)==TRUE){
-                                printf("\nPase alfabetico");
                                 if(buscarPersona(abb,str->str1)==TRUE){
-                                    printf("\nPase buscar persona");
                                     comValido=TRUE;
                                     }
                             }
@@ -272,27 +270,27 @@ comando reconocerCom(string str) {
     comando c;
     mayus(str);
 
-    if(streq(str,"INICIAR")){
+    if(streq(str, Ini)){
         c = Iniciar;
-    }else if(streq(str, "NACIMIENTO"))
+    }else if(streq(str, Naci))
         c = Nacimiento;
-    else if(streq(str, "FALLECIMIENTO"))
+    else if(streq(str, Falle))
         c = Fallecimiento;
-    else if(streq(str, "ABDICACION"))
+    else if(streq(str, Abdi))
         c = Abdicacion;
-    else if(streq(str, "MIEMBROS"))
+    else if(streq(str, Miem))
         c = Miembros;
-    else if(streq(str, "MONARCAS"))
+    else if(streq(str, Mona))
         c = Monarcas;
-    else if(streq(str, "ASPIRANTES"))
+    else if(streq(str, Asp))
         c = Aspirantes;
-    else if(streq(str, "HISTORIAL"))
+    else if(streq(str, Histo))
         c = Historial;
-    else if(streq(str, "RESPALDAR"))
+    else if(streq(str, Resp))
         c = Respaldar;
-    else if(streq(str, "RECUPERAR"))
+    else if(streq(str, Recu))
         c = Recuperar;
-    else if(streq(str, "SALIR"))
+    else if(streq(str, Sal))
         c = Salir;
     else
         c= Desconocido;
@@ -300,7 +298,6 @@ comando reconocerCom(string str) {
 }
 
 void iniciar(arbol &a, listaSuc &ls, listaStr &lstr) {
-    printf("\nEntre a Funcioniniciar");
     //Cargar datos en una persona AUX
     persona aux;
     lstr=lstr->sig;
@@ -310,7 +307,7 @@ void iniciar(arbol &a, listaSuc &ls, listaStr &lstr) {
     mayus(aux.nombre);
     aux.nacimiento = auxi;
     aux.primerMonarca = TRUE;
-    strcop(aux.progenitor, " ");
+    strcop(aux.progenitor,aux.nombre);
 
      //Cargar datos al ABB
      cargar(a,aux);
@@ -327,13 +324,12 @@ void iniciar(arbol &a, listaSuc &ls, listaStr &lstr) {
      dat.fechAsc = aux.nacimiento;
      dat.fueMonarca = TRUE;
      cargar(ls,dat);
-     printf("\nSali Funcioniniciar");
 }
 
 
 void nacimiento(arbol &a, listaSuc &ls, listaStr &lstr) {
     printf("\nEngre a Nacimiento");
-    listaSuc lAux=ls,lAux2;
+    listaSuc lAux=ls;
     datos DatoAux;
 
     //Cargar datos en una persona AUX
@@ -352,6 +348,7 @@ void nacimiento(arbol &a, listaSuc &ls, listaStr &lstr) {
     printf("\nPre carga abb");
     cargar(a, aux);
     printf("\nPost carga abb");
+
     //Cargar datos a la lista
 
     string padre;
@@ -376,41 +373,21 @@ void fallecimiento(listaSuc &ls, listaStr lstr) {
     fecha auxi;
     lstr = lstr->sig;
     auxi = stringFecha(lstr->str1);
-    printf("\nFecha auxi;");
-    mostrar(auxi);
     lstr = lstr->sig;
     mayus(lstr->str1);
     string nombre;
     strcop(nombre,lstr->str1);
-    printf("\nNombre;");
-    print(nombre);
     while(streq(nombre,aux->dat.miembro.nombre) == FALSE) {
       aux = aux->sig;
     }
-    printf("\nSali del while");
     aux->dat.fallecio = TRUE;
-    printf("\n fallecio; ");
-    mostrar(aux->dat.fallecio);
     aux->dat.fechFall = auxi;
-    printf("\nFecha fall:");
-    mostrar(aux->dat.fechAbd);
-    printf("\nprevia if");
     if(esMonarca(aux->dat) == TRUE) {
-            printf("\nEntre al if");
         aux->dat.actualMonarca = FALSE;
-        printf("\nDONDE TOY;");
-        print(aux->dat.miembro.nombre);
         boolean encontre=FALSE;
         do {
-            printf("\nentre al dowhile");
-            if(aux->dat.fallecio==FALSE) //test
-                printf("\nfallecio");     //test
-            else                        //test
-                printf("\nta vacio");   //test
             if(aux->dat.fallecio == FALSE ){
-                printf("\npase primer if");
                 if(aux->dat.abdico == FALSE){
-                    printf("\nentre al if del dowhile");
                     aux->dat.actualMonarca = TRUE;
                     aux->dat.fueMonarca=TRUE;
                     aux->dat.fechAsc = auxi;
@@ -431,40 +408,25 @@ void abdicacion(listaSuc &ls, listaStr &lstr) {
     fecha auxi;
     lstr = lstr->sig;
     auxi = stringFecha(lstr->str1);
-    printf("\nFecha auxi;");
-    mostrar(auxi);
     lstr = lstr->sig;
     mayus(lstr->str1);
     string nombre;
     strcop(nombre,lstr->str1);
-    printf("\nNombre;");
-    print(nombre);
     while(streq(nombre,aux->dat.miembro.nombre) == FALSE) {
       aux = aux->sig;
     }
-    printf("\nSali del while");
     aux->dat.abdico = TRUE;
-    printf("\n abdico; ");
-    mostrar(aux->dat.abdico);
     aux->dat.fechAbd = auxi;
-    printf("\nFecha abd:");
-    mostrar(aux->dat.fechAbd);
-    printf("\nprevia if");
     if(esMonarca(aux->dat) == TRUE) {
-            printf("\nEntre al if de quitar monarca");
         aux->dat.actualMonarca = FALSE;
         boolean encontre=FALSE;
         do {
-            printf("\nentre al dowhile");
             if(aux->dat.fallecio == FALSE ){
-                printf("\npase primer if");
                 if(aux->dat.abdico == FALSE){
-                    printf("\nentre al if del dowhile\n");
                     aux->dat.actualMonarca = TRUE;
                     aux->dat.fueMonarca=TRUE;
                     aux->dat.aspTrono=FALSE;
                     aux->dat.fechAsc = auxi;
-                    mostrar(aux->dat.aspTrono);
                     encontre = TRUE;
                     }
                 }
@@ -496,11 +458,10 @@ void monarcas(listaSuc ls) {
             mostrarMonarca(darDatos(aux));
         } else
             aux = aux->sig;
-    } while(aux=NULL);
+    }while(aux==NULL);
 }
 
 void aspirantes(listaSuc ls){
-    printf("\nEntre a aspirantes");
     listaSuc aux=ls;
     int contador = 1;
     while(esMonarca(aux->dat) == TRUE) {
