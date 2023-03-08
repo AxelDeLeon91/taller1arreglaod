@@ -1,71 +1,74 @@
 #include "parsing.h"
 
-boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
-    boolean comValido = FALSE;
+void mostrarError(listaStr str, comando com, arbol abb,listaSuc lsuc) {
+    fecha auxi, auxi2;
     switch(com) {
-        case Nacimiento: // Nacimiento Fecha NombreProgenitor -> nombreNuevo // Ej.: nacimiento 21/04/1926 Jorge -> Isabel
+        case Nacimiento:
                 if(contarNodos(str) != 5) {
                     mostrarError(error1);
-                } else {
+                }else{
                     str = str->sig;
-                    if(valida(stringFecha(str->str1))==FALSE) {
+                    if(valida(stringFecha(str->str1))==FALSE){
                         if(esUltimaFecha(stringFecha(str->str1),lsuc)==FALSE)
                             mostrarError(error3);
                         else
                             mostrarError(error2);
-                    } else {
+                    }else{
                         str = str->sig;
-                        if(alfabetico(str->str1)==FALSE) {
+                        if(alfabetico(str->str1)==FALSE){
                             mostrarError(error4);
-                        } else {
-                            if(buscarPersona(abb,str->str1)==FALSE) {
+                        }else{
+                            if(buscarPersona(abb,str->str1)==FALSE){
                                 mostrarError(error5);
-                            } else {
+                            }else{
                                 str = str->sig;
-                                if(streq(str->str1,"->")==FALSE) {
+                                if(streq(str->str1,"->")==FALSE){
                                     mostrarError(error6);
-                                } else {
+                                }else{
                                     str = str->sig;
-                                    if(alfabetico(str->str1)==FALSE) {
+                                    if(alfabetico(str->str1)==FALSE){
                                         mostrarError(error4);
-                                    } else {
-                                            if(buscarPersona(abb,str->str1)==TRUE) {
+                                    }else{
+                                            if(buscarPersona(abb,str->str1)==TRUE){
                                                 mostrarError(error7);
-                                            } else comValido=TRUE;
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
             break;
-        case Iniciar: // Iniciar Fecha Nombre // Ej.: iniciar 14/12/1895 Jorge
-                if(contarNodos(str) != 3) {
+        case Iniciar:
+                if(contarNodos(str) != 3){
                   mostrarError(error1);
-                } else {
+                }else{
                     str=str->sig;
-                    if(valida(stringFecha(str->str1))==FALSE) {
+                    if(valida(stringFecha(str->str1))==FALSE){
                         if(esUltimaFecha(stringFecha(str->str1),lsuc)==FALSE)
                             mostrarError(error3);
                         else
                             mostrarError(error2);
-                    } else {
+                    }else{
                         str=str->sig;
-                        if(alfabetico(str->str1)==FALSE) {
+                        if(alfabetico(str->str1)==FALSE)
                             mostrarError(error4);
-                        } else comValido=TRUE;
                     }
                 }
             break;
-        case Fallecimiento: // Fallecimiento Fecha Nombre // Ej.: fallecimiento 06/02/1952 Jorge
-        case Abdicacion: // Abdicacion Fecha Nombre // Ej.: abdicacion 01/04/2020 Enrique
+        case Fallecimiento:
+        case Abdicacion:
                 if(contarNodos(str) != 3) {
                     mostrarError(error1);
                 } else {
                     str=str->sig;
-                    if(valida(stringFecha(str->str1))==FALSE) {
-                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==FALSE)
+                    auxi=stringFecha(str->str1);
+                    if(esUltimaFecha(auxi,lsuc)==FALSE) {
+                        printf("\nEntre valida");
+                        if(esUltimaFecha(auxi,lsuc)==FALSE){
+                            printf("\nEntre ultima");
                             mostrarError(error3);
+                        }
                         else
                             mostrarError(error2);
                     } else {
@@ -75,7 +78,7 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                         } else {
                             if(buscarPersona(abb,str->str1)==FALSE) {
                                 mostrarError(error5);
-                            } else comValido=TRUE;
+                            }
                         }
                     }
                 }
@@ -86,7 +89,7 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                 } else {
                     if(abb==NULL) {
                         mostrarError(error8);
-                    } else comValido=TRUE;
+                    }
                 }
             break;
         case Monarcas:
@@ -95,7 +98,7 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                 } else {
                     if(lsuc==NULL) {
                        mostrarError(error9);
-                    } else comValido=TRUE;
+                    }
                 }
             break;
         case Aspirantes:
@@ -104,7 +107,7 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                 } else {
                     if(hayAspirantes(lsuc)==FALSE) {
                         mostrarError(error10);
-                    } else comValido=TRUE;
+                    }
                 }
             break;
         case Historial:
@@ -113,7 +116,7 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                 } else {
                     if(lsuc==NULL) {
                         mostrarError(error9);
-                    } else comValido=TRUE;
+                    }
                 }
 
             break;
@@ -126,8 +129,7 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                     } else {
                         if(lsuc==NULL) {
                             mostrarError(error9);
-                        } else
-                            comValido=TRUE;
+                        }
                     }
                 }
             break;
@@ -140,19 +142,114 @@ boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc) {
                     } else {
                         if(lsuc!=NULL) {
                             mostrarError(error12);
-                        } else comValido=TRUE;
+                        }
                     }
                 }
             break;
         case Salir:
-                if(contarNodos(str) == 1){
-                    comValido = TRUE;
-                }else
+                if(contarNodos(str) != 1)
                     mostrarError(error1);
             break;
+
         default:
             break;
+        }
     }
+
+boolean verificarComando(listaStr str,comando com,arbol abb,listaSuc lsuc){
+      boolean comValido=FALSE;
+      listaStr aux=str;
+      fecha auxi, auxi2;
+        switch(com) {
+        case Iniciar:
+                if(contarNodos(str) == 3){
+                    str=str->sig;
+                    auxi=stringFecha(str->str1);
+                    if(valida(auxi)==TRUE)
+                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==TRUE)
+                            str=str->sig;
+                            if(alfabetico(str->str1)==TRUE)
+                                comValido=TRUE;
+                }
+            break;
+
+        case Nacimiento:
+                if(contarNodos(str) == 5)
+                    str = str->sig;
+                    if(valida(stringFecha(str->str1))==TRUE)
+                        if(esUltimaFecha(stringFecha(str->str1),lsuc)==TRUE)
+                            str = str->sig;
+                            if(alfabetico(str->str1)==TRUE)
+                                if(buscarPersona(abb,str->str1)==TRUE)
+                                    str = str->sig;
+                                    if(streq(str->str1,"->")==TRUE)
+                                        str = str->sig;
+                                        if(alfabetico(str->str1)==TRUE)
+                                            if(buscarPersona(abb,str->str1)==FALSE)
+                                                comValido=TRUE;
+            break;
+
+        case Fallecimiento:
+        case Abdicacion:
+                if(contarNodos(str)==3){
+                    str=str->sig;
+                    auxi=stringFecha(str->str1);
+                    if(valida(auxi)==TRUE){
+                        auxi2=stringFecha(str->str1);
+                        if(esUltimaFecha(auxi2,lsuc)==TRUE)
+                            str=str->sig;
+                            if(alfabetico(str->str1)==TRUE)
+                                if(buscarPersona(abb,str->str1)==TRUE)
+                                    comValido=TRUE;
+                    }
+                }
+                break;
+        case Miembros:
+                if(contarNodos(str)==1)
+                    if(abb!=NULL)
+                        comValido=TRUE;
+            break;
+        case Monarcas:
+                if(contarNodos(str)==1)
+                    if(lsuc!=NULL)
+                       comValido=TRUE;
+            break;
+        case Aspirantes:
+                if(contarNodos(str)==1)
+                    if(hayAspirantes(lsuc)==TRUE)
+                        comValido=TRUE;
+            break;
+        case Historial:
+                if(contarNodos(str)==1)
+                    if(lsuc!=NULL)
+                        comValido=TRUE;
+
+            break;
+        case Respaldar:
+                if(contarNodos(str)==1)
+                    if(abb!=NULL)
+                        if(lsuc!=NULL)
+                            comValido=TRUE;
+
+            break;
+        case Recuperar:
+                if(contarNodos(str)==1)
+                    if(abb==NULL)
+                        if(lsuc==NULL)
+                            comValido=TRUE;
+
+                break;
+        case Salir:
+                if(contarNodos(str) == 1)
+                    comValido=TRUE;
+            break;
+
+        default:
+                comValido=FALSE;
+            break;
+
+}
+    str=aux;
     return comValido;
 }
 
@@ -188,6 +285,7 @@ comando reconocerCom(string str) {
 }
 
 void iniciar(arbol &a, listaSuc &ls, listaStr &lstr) {
+    printf("\nEntre a Funcioniniciar");
     //Cargar datos en una persona AUX
     persona aux;
     lstr=lstr->sig;
@@ -214,6 +312,7 @@ void iniciar(arbol &a, listaSuc &ls, listaStr &lstr) {
      dat.fechAsc = aux.nacimiento;
      dat.fueMonarca = TRUE;
      cargar(ls,dat);
+     printf("\nSali Funcioniniciar");
 }
 
 
@@ -242,47 +341,42 @@ void nacimiento(arbol &a, listaSuc &ls, listaStr &lstr) {
 }
 
 void fallecimiento(listaSuc &ls, listaStr lstr) {
-    printf("\nentre a fall");
     listaSuc aux;
     aux = ls;
     fecha auxi;
     lstr = lstr->sig;
     auxi = stringFecha(lstr->str1);
+    printf("\nFecha auxi;");
+    mostrar(auxi);
     lstr = lstr->sig;
     mayus(lstr->str1);
     string nombre;
     strcop(nombre,lstr->str1);
-    boolean encontre=FALSE;
-
-    printf("\nprevia while");
-    while(aux!=NULL && encontre!=TRUE){
-         printf("\nentre while");
-         print(aux->dat.miembro.nombre);
-        if(streq(nombre,aux->dat.miembro.nombre)==TRUE){
-            encontre=TRUE;
-            printf("\npuse encontre en true");
-        }else
-            aux=aux->sig;
-            printf("\navance puntero");
+    printf("\nNombre;");
+    print(nombre);
+    while(streq(nombre,aux->dat.miembro.nombre) == FALSE) {
+      aux = aux->sig;
     }
-
+    printf("\nSali del while");
     aux->dat.fallecio = TRUE;
+    printf("\n fallecio; ");
+    mostrar(aux->dat.fallecio);
     aux->dat.fechFall = auxi;
-    printf("\nNombre:");
-    print(aux->dat.miembro.nombre);
-    printf("\nfecha fallecimiento:");
-    mostrar(aux->dat.fechFall);
+    printf("\nFecha fall:");
+    mostrar(aux->dat.fechAbd);
+    printf("\nprevia if");
     if(esMonarca(aux->dat) == TRUE) {
-        printf("\nentre al if esmonarca");
+            printf("\nEntre al if");
         aux->dat.actualMonarca = FALSE;
-        aux = aux->sig;
+        printf("\nDONDE TOY;");
+        print(aux->dat.miembro.nombre);
         boolean encontre=FALSE;
         do {
             printf("\nentre al dowhile");
-            if(aux->dat.fallecio==FALSE)    //test
-                printf("Palmo");        //test
-            else                    //test
-                printf("ta vacio");     //test
+            if(aux->dat.fallecio==FALSE) //test
+                printf("\nfallecio");     //test
+            else                        //test
+                printf("\nta vacio");   //test
             if(aux->dat.fallecio == FALSE ){
                 printf("\npase primer if");
                 if(aux->dat.abdico == FALSE){
@@ -293,12 +387,10 @@ void fallecimiento(listaSuc &ls, listaStr lstr) {
                     encontre = TRUE;
                     }
                 }
-          aux = aux->sig;
-        }while(encontre == FALSE && aux!= NULL);
-
+            aux=aux->sig;
+        }while(encontre != TRUE && aux!= NULL);
         if(encontre == FALSE)
             printf("\nLa monarquia termino ya que no hay sucesores");
-        ls = aux;
     }
 }
 
@@ -369,7 +461,7 @@ void monarcas(listaSuc ls) {
     do{
         if(esMonarca(aux->dat) == TRUE)
             encontre = TRUE;
-        else ls = aux->sig;
+        else aux = aux->sig;
     } while(encontre != TRUE);
     int contador = 1;
     do{

@@ -122,7 +122,7 @@
 	<stdio.h>
 	"fecha.h"
 
-1678173615 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.cpp
+1678239640 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.cpp
 	"listaStr.h"
 
 1678173624 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.h
@@ -135,18 +135,18 @@
 	"datosSuce.h"
 	"persona.h"
 
-1678178773 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\main.cpp
+1678240752 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\main.cpp
 	<stdio.h>
 	"parsing.h"
 
-1678169603 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.h
+1678236980 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.h
 	"arbolPersonas.h"
 	"listaSuc.h"
 	"listaStr.h"
 	"comando.h"
 	"error.h"
 
-1678180735 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.cpp
+1678241419 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.cpp
 	"parsing.h"
 
 1678179234 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\persona.cpp

@@ -7,7 +7,8 @@
 #include "comando.h"
 #include "error.h"
 
-boolean verificarCom(listaStr str, comando com, arbol abb,listaSuc lsuc);
+boolean verificarComando(listaStr str, comando com, arbol abb,listaSuc lsuc);
+void mostrarError(listaStr str, comando com, arbol abb,listaSuc lsuc);
 comando reconocerCom(string s);
 void iniciar(arbol &a, listaSuc &ls, listaStr &lstr);
 void nacimiento(arbol &a, listaSuc &ls, listaStr &lstr);

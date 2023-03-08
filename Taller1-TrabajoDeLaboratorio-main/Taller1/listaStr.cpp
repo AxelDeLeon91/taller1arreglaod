@@ -36,10 +36,10 @@ void borrarLista(listaStr &ls) {
 
 int contarNodos(listaStr ls) {
     int i = 0;
-        do {
+        while (ls != NULL){
             i++;
             ls = ls->sig;
-        } while (ls->sig != NULL);
+        } ;
     return i;
 }
 
