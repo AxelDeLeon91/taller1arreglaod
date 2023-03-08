@@ -11,11 +11,11 @@ void cargar(listaSuc &ls, datos dat) {
 }
 boolean hayAspirantes(listaSuc lsuc) {
     boolean hay = FALSE;
-    int i = 0;
     while(lsuc != NULL) {
-        if(aspirante(darDatos(lsuc)))
+        if(lsuc->dat.aspTrono==TRUE){
             hay = TRUE;
-        i++;
+        }else
+            lsuc=lsuc->sig;
     }
     return hay;
 }
@@ -52,12 +52,54 @@ boolean esUltimaFecha(fecha f, listaSuc lsuc){
 }
 
 void mostrarAspirante(datos d){
-    printf("\nEntre a mostrarAspirante");
-    printf("\n");
     print(d.miembro.nombre);
     printf(" hijo/a de ");
     print(d.miembro.progenitor);
 }
+
+void cargarNacimiento(listaSuc &ls,string padre,datos aux){
+    printf("\nEntre cargar nacimiento:  ");
+    print(padre);
+    boolean encontre=FALSE, pad=FALSE;
+    int cantHijos=0;
+    listaSuc aux2=ls, aux3;
+
+    while(pad==FALSE&& aux2!=NULL){
+        printf("\nWhile");
+        if(streq(padre,aux2->dat.miembro.nombre)==TRUE){
+            pad=TRUE;
+            printf("\nEncontre padre");
+        }else
+            aux2=aux2->sig;
+    }
+    printf("\nSali while");
+
+
+            do{
+                print(aux2->dat.miembro.progenitor);
+                if(streq(padre,aux2->dat.miembro.progenitor)==TRUE){
+                    printf("\n%c",cantHijos);
+                    cantHijos++;
+                    }
+                aux2=aux2->sig;
+            }while(aux2!=NULL);
+            printf("\nSali while");
+
+            while(cantHijos!=0){
+                if(streq(padre,aux2->dat.miembro.progenitor)){
+                    printf("\n%c",cantHijos);
+                    cantHijos--;
+                    aux3=aux2;
+                }
+                aux2=aux2->sig;
+            }
+            printf("\nSali while");
+            aux3->sig=new nodoL;
+            aux3=aux3->sig;
+            aux3->sig=aux2;
+            aux3->dat=aux;
+    }
+
 
 // Archivos
 void bajar(listaSuc ls) {

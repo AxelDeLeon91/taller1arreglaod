@@ -65,7 +65,7 @@ void separarString(string str, listaStr &ls) {
             strAux[j] = '\0';
             j = 0;
             InsBackIter(ls, strAux);
-            strdestruir(strAux);
         }
+        strdestruir(strAux);
     }
 }

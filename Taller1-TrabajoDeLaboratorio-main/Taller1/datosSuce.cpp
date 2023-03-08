@@ -29,10 +29,10 @@ void mostrarDatos(datos dat) {
             mostrar(dat.fechFall);
         } else
             if(aspirante(dat)==TRUE) {
-                printf(" aspirante al trono");
+                printf("\n      Aspirante al trono");
             } else
                 if(abdica(dat)==TRUE) {
-                    printf(" no es aspirante, abdico el ");
+                    printf(" \n     No es aspirante, abdico el ");
                     mostrar(dat.fechAbd);
                 }
 }

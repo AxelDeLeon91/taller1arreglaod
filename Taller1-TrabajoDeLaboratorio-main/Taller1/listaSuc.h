@@ -21,6 +21,7 @@ void historial(listaSuc ls);
 void agregarDatos(datos d, listaSuc &ls);
 boolean esUltimaFecha(fecha f, listaSuc lsuc);
 void mostrarAspirante(datos d);
+void cargarNacimiento(listaSuc &ls,string padre,datos aux);
 
 // Archivos
 void bajar(listaSuc p);

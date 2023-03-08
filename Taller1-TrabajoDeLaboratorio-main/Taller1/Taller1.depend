@@ -106,7 +106,7 @@
 
 1678164561 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\comando.h
 
-1678180540 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\datossuce.cpp
+1678250069 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\datossuce.cpp
 	"datosSuce.h"
 
 1678160555 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\datossuce.h
@@ -122,20 +122,20 @@
 	<stdio.h>
 	"fecha.h"
 
-1678239640 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.cpp
+1678252977 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.cpp
 	"listaStr.h"
 
 1678173624 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listastr.h
 	"string.h"
 
-1678180358 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listasuc.cpp
+1678252301 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listasuc.cpp
 	"listaSuc.h"
 
-1678180200 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listasuc.h
+1678245541 c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\listasuc.h
 	"datosSuce.h"
 	"persona.h"
 
-1678240752 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\main.cpp
+1678252356 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\main.cpp
 	<stdio.h>
 	"parsing.h"
 
@@ -146,13 +146,13 @@
 	"comando.h"
 	"error.h"
 
-1678241419 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.cpp
+1678252610 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\parsing.cpp
 	"parsing.h"
 
 1678179234 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\persona.cpp
 	"persona.h"
 
-1678171148 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\string.cpp
+1678250080 source:c:\users\elneg\onedrive\escritorio\taller1-trabajodelaboratorio-main\taller1\string.cpp
 	<stdio.h>
 	"string.h"
 

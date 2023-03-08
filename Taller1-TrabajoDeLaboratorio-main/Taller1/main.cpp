@@ -31,8 +31,16 @@ int main() {
 
                         break;
                     case Nacimiento:
-                        printf("\nnaci");
-                        nacimiento(abb, lSuc, lStr);
+                        printf("\nEntre CASENacimiento\n");
+                        mostrar(verificarComando(lStr,c,abb,lSuc));
+                        if(verificarComando(lStr,c,abb,lSuc)==TRUE){
+                            printf("\nEntre al if Nacimiento");
+                            nacimiento(abb,lSuc,lStr);
+                            printf("\nSali Nacimiento");
+                        }else{
+                            printf("\nEntre a else");
+                            mostrarError(lStr,c,abb,lSuc);
+                            }
                         break;
                     case Fallecimiento:
                         printf("\npalme");
@@ -40,6 +48,7 @@ int main() {
                         break;
                     case Abdicacion:
                         printf("\nEntre a CaseAbdicar");
+                        mostrar(verificarComando(lStr,c,abb,lSuc));
                         if(verificarComando(lStr,c,abb,lSuc)==TRUE){
                             printf("\nEntre al if");
                             abdicacion(lSuc, lStr);
@@ -76,8 +85,6 @@ int main() {
                         break;
                     case Salir:
                         printf("\nSalir");
-                    default:
-                        break;
                 }
             strdestruir(com);
             borrarLista(lStr);
